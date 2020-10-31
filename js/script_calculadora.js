@@ -26,94 +26,237 @@
  var botao_resultado = document.getElementById("botao_resultado")
  
  
- let salvaNumero = []
-  let salvaNum= salvaNumero.join('')
+ var salvaNumero = []
+ var operador = ''
+ var num1 = ''
+ var a = ''
  
-digito_1.addEventListener('click', function(){
+ //numeros
+ digito_1.addEventListener('click', function(){
   input.innerText += 1
-  salvaNumero.push(1)  
+  num1 += 1
+  
 })
 digito_2.addEventListener('click', function(){
-  input.innerText +=  2
-  salvaNumero.push(2)
+  input.innerText +=  '2'
+  num1 += 2
+  
+  
 })
 digito_3.addEventListener('click', function(){
   input.innerText += 3
-
+  num1 += 3
+  
+  
 })
 digito_4.addEventListener('click', function(){
   input.innerText += 4
+  num1 +=4
 })
-
 digito_5.addEventListener('click', function(){
   input.innerText += 5
-  
+  num1 +=5
 })
 digito_6.addEventListener('click', function(){
   input.innerText += 6
+  num1 +=6
 })
 digito_7.addEventListener('click', function(){
   input.innerText += 7
+  num1 +=7
 })
 digito_8.addEventListener('click', function(){
   input.innerText += 8
+  num1 +=8
   
 })
 digito_9.addEventListener('click', function(){
   input.innerText += 9
+  num1 +=9
 })
 digito_0.addEventListener('click', function(){
   input.innerText += 0
+  num1 +=0
 })
-operador_soma.addEventListener('click', function(){
-  salvaNumero.push(' ')
-  input.innerText += ' +  '
-  historico.innerText = salvaNum
+virgula.addEventListener('click', function(){
+  input.innerText +=','
+  num1 += '.'
+})
+negativo.addEventListener('click', function(){
+  input.innerText = `-${num1}`
+  num1 = num1 * (-1)
+})
+
+//Funções
+limpa_telaC.addEventListener('click', function(){
+  salvaNumero= []
+  historico.innerText = ' '
+  input.innerText = ' '
+})
+
+limpa_telaCE.addEventListener('click', function(){
+  input.innerText = ' '
+  num1 = ''
+})
+
+botao_resultado.addEventListener('click', function(){
   
+  input.innerText += ' =  '
+  operador = '='
+  a = num1
+  salvaNumero.push(parseFloat(a))
+  salvaNumero.push(operador)
+  historico.innerText = salvaNumero.join(' ')
+  num1= " "
+  console.log(salvaNumero, num1)
   input.textContent = ' '
-})
-
-console.log(salvaNum)
-
-/* function falsoBinario(x){
-  let numero = x.toString()
-  console.log(numero.length)
+  let resultadoFinal = []
   
-  let resultado = []
-  let resultadoFinal = resultado.join('')
-  for(let i = 0; i < numero.length; i++){
+  for(let i = 0; i < salvaNumero.length; i++){
+    if(salvaNumero.length % 2 == 0){
+      if( salvaNumero[i]  == "+" && salvaNumero[i+1] && salvaNumero[i-1] ){
+        let numero1 = salvaNumero[i-1] 
+        let numero2 = salvaNumero[i+1]
+        console.log(`numero 1: ${numero1}`)
+        console.log(`numero 2: ${numero2}`)
+
+        let igual = salvaNumero[salvaNumero.length - 1]
+        
+        salvaNumero.splice(igual)
+        
+        let resultado = numero1 + numero2 + salvaNumero[salvaNumero.length -1]
+        
+        
+        
+        
+        /* salvaNumero.splice(0, 2) */
+        
+
+        resultadoFinal.push(resultado)
+        console.log(resultadoFinal) 
+        
+        
+        /* historico.innerText = salvaNumero.join(' ') + `= ${resultado}`
+        num1 = resultado
+        input.innerText = resultado */
+        
+      }
+    }
+    else if(salvaNumero.length % 2 == 0){
+      if( salvaNumero[i]  == "+" && salvaNumero[i+1] && salvaNumero[i-1] ){
+        let numero1 = salvaNumero[i-1] 
+        let numero2 = salvaNumero[i+1]
+        console.log(`numero 1: ${numero1}`)
+        console.log(`numero 2: ${numero2}`)
+        
+        let resultado = numero1 + numero2 + salvaNumero[salvaNumero.length - 1]
+        
+        salvaNumero.splice(0, 2)
+        resultadoFinal.push(resultado)
+        console.log(resultadoFinal)
+        
+      }
+    }
     
-    if(x[i] > 4){
-      let num5 = 5
-      resultado.push(num5)
+  }
+})
+  
+  
+  //Opoeradores
+  operador_soma.addEventListener('click', function(){
+    
+    input.innerText += ' +  '
+    operador = '+'
+    a = num1
+    salvaNumero.push(parseFloat(a))
+    salvaNumero.push(operador)
+    historico.innerText = salvaNumero.join(' ')
+    num1= " "
+    console.log(salvaNumero, num1)
+    input.textContent = ' '
+  })
+  
+  operador_subtracao.addEventListener('click', function(){
+    
+    input.innerText += ' -  '
+    operador = '-'
+    a = num1
+    salvaNumero.push(parseFloat(a))
+    salvaNumero.push(operador)
+    historico.innerText = salvaNumero.join(' ')
+    num1= " "
+    console.log(salvaNumero, num1)
+    input.textContent = ' '
+  })
+  
+  operador_multiplicacao.addEventListener('click', function(){
+    
+    input.innerText += ' *  '
+    operador = '*'
+    a = num1
+    salvaNumero.push(parseFloat(a))
+    salvaNumero.push(operador)
+    historico.innerText = salvaNumero.join(' ')
+    num1= " "
+    console.log(salvaNumero, num1)
+    input.textContent = ' '
+  })
+  
+  operador_divisao.addEventListener('click', function(){
+    
+    input.innerText += ' /  '
+    operador = '/'
+    a = num1
+    salvaNumero.push(parseFloat(a))
+    salvaNumero.push(operador)
+    historico.innerText = salvaNumero.join(' ')
+    num1= " "
+    console.log(salvaNumero, num1)
+    input.textContent = ' '
+  })
+  
+  
+  /* console.log(salvaNum) */
+  
+  /* function falsoBinario(x){
+    let numero = x.toString()
+    console.log(numero.length)
+    
+    let resultado = []
+    let resultadoFinal = resultado.join('')
+    for(let i = 0; i < numero.length; i++){
+      
+      if(x[i] > 4){
+        let num5 = 5
+        resultado.push(num5)
+      }
+      if(x[i] < 5) {
+        let num0 = 0
+        resultado.push(num0)
+        console.log(resultado)
+      }
     }
-    if(x[i] < 5) {
-      let num0 = 0
-      resultado.push(num0)
-      console.log(resultado)
+    
+    console.log( resultadoFinal)
+  }
+  
+  falsoBinario("351772248482")
+  
+  function inverter(n) {
+    let numeroLetra = n.toString()
+    let arrOriginal = []
+    let arrInvertido = []
+    
+    for(let i = 0; i < numeroLetra.length; i++){
+      arrOriginal.push(parseInt(numeroLetra[i]))
+      console.log(numeroLetra[i])
     }
+    
+    for(let i = arrOriginal.length -1  ; i > -1; i--){
+      arrInvertido.push(parseInt(numeroLetra[i]))
+      console.log(numeroLetra[i])
+    }
+    console.log(arrInvertido)
   }
   
-  console.log( resultadoFinal)
-}
-
-falsoBinario("351772248482")
-
-function inverter(n) {
-  let numeroLetra = n.toString()
-  let arrOriginal = []
-  let arrInvertido = []
-  
-  for(let i = 0; i < numeroLetra.length; i++){
-    arrOriginal.push(parseInt(numeroLetra[i]))
-    console.log(numeroLetra[i])
-  }
-  
-  for(let i = arrOriginal.length -1  ; i > -1; i--){
-    arrInvertido.push(parseInt(numeroLetra[i]))
-    console.log(numeroLetra[i])
-  }
-  console.log(arrInvertido)
-}
-
-inverter(351772248482) */
+  inverter(351772248482) */
