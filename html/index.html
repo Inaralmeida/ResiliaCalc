@@ -10,7 +10,10 @@
 <body>
     
     <div id="container">
-        <input type="text">
+        
+        <div id="historico"></div>
+        <div id="input"></div>
+        
         <div id="operadores-superior">
             <div class="operador" id="">%</div>
             <div class="operador" id="">¹/x</div>
@@ -23,29 +26,28 @@
         </div>
         <main>
             <div id="numerais">
-                <div class="btn">1</div>
-                <div class="btn">2</div>
-                <div class="btn">3</div>
-                <div class="btn">4</div>
-                <div class="btn">5</div>
-                <div class="btn">6</div>
-                <div class="btn">7</div>
-                <div class="btn">8</div>
-                <div class="btn">9</div>
+                <div class="btn" id="digito_1">1</div>
+                <div class="btn" id="digito_2">2</div>
+                <div class="btn" id="digito_3">3</div>
+                <div class="btn" id="digito_4">4</div>
+                <div class="btn" id="digito_5">5</div>
+                <div class="btn" id="digito_6">6</div>
+                <div class="btn" id="digito_7">7</div>
+                <div class="btn" id="digito_8">8</div>
+                <div class="btn" id="digito_9">9</div>
                 <div class="operador">+ / -</div>
-                <div class="btn">0</div>
+                <div class="btn" id="digito_0">0</div>
                 <div class="operador">,</div>
             </div>
             
             <div id="operadores-lateral">
                 <div class="operador">X</div>
                 <div class="operador">-</div>
-                <div class="operador">+</div>
+                <div class="operador" id="operador_soma">+</div>
                 <div class="operador">=</div>
             </div>
         </main>
-        
-
+        <script src="../js/script_calculadora.js"></script>
     </div>
 </body>
 </html>
