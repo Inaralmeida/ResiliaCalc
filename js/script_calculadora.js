@@ -24,25 +24,29 @@
  var limpa_telaC = document.getElementById("limpa_telaC")
  var limpa_telaCE = document.getElementById("limpa_telaCE")
  var botao_resultado = document.getElementById("botao_resultado")
-//---------------------botões gerais-----------------------------------------------
+
+//---------------------botões gerais--------------------------------------------------
  var botoes = document.querySelectorAll(".operador")
  var operadores = document.querySelectorAll(".btn")
 
  botoes.forEach(function(todosOsBotoes){
   todosOsBotoes.addEventListener('mouseover', () =>{
-      todosOsBotoes.style.background = 'linear-gradient(#ffffff, #000000)';
+      todosOsBotoes.style.background = 'linear-gradient(#ffffff,#555 )';
   })
   todosOsBotoes.addEventListener('mouseout', () =>{
-    todosOsBotoes.style.background = 'linear-gradient(#000000, #ffffff)';
+    todosOsBotoes.style.color = 'white'
+    todosOsBotoes.style.background = 'linear-gradient(#555 ,#ffffff)';
   })
 })
 
 for (let todosOsBotoes of botoes){
   todosOsBotoes.addEventListener('mousedown', () =>{
       todosOsBotoes.style.color = 'black'
+      todosOsBotoes.style.background = 'linear-gradient(#555 ,#ffffff)'
   })
   todosOsBotoes.addEventListener('mouseup', () =>{
       todosOsBotoes.style.color = 'white'
+      todosOsBotoes.style.background = 'linear-gradient(#ffffff,#555 )'
   })
 }
 
@@ -59,19 +63,20 @@ operadores.forEach(function(todosOsBotoes){
 for (let todosOsBotoes of operadores){
   todosOsBotoes.addEventListener('mousedown', () =>{
       todosOsBotoes.style.color = 'black'
+      todosOsBotoes.style.background = 'linear-gradient(#222, #777)'
   })
   todosOsBotoes.addEventListener('mouseup', () =>{
       todosOsBotoes.style.color = 'white'
+      todosOsBotoes.style.background = 'linear-gradient(#777,#222)'
   })
 }
-
-//---------------------botões gerais-----------------------------------------------
+//---------------------botões gerais-------------------------------------------------
 
  var salvaNumero = []
  var operador = ''
  var num1 = ''
  var a = ''
- let resultado = 0 //----------- mexer nisso aqui
+ let resultado = 0 //------------------------------------------- mexer nisso aqui
  
  //numeros
  digito_1.addEventListener('click', function(){
@@ -145,7 +150,6 @@ limpa_telaCE.addEventListener('click', function(){
 
 //Opoeradores
 operador_soma.addEventListener('click', function(){
-
   a= resultado + num1
   console.log(`valor de ${a}`)
 
@@ -213,7 +217,6 @@ botao_resultado.addEventListener('click', function(){
   
   
   
-  
   for(let i = 0; i < salvaNumero.length; i++){
     if( salvaNumero[i]  == "+" && salvaNumero[i+1] && salvaNumero[i-1] ){
       let numero1 = salvaNumero[i-1] 
@@ -265,51 +268,3 @@ botao_resultado.addEventListener('click', function(){
 }
 
 })
-
-
-
-
-/* console.log(salvaNum) */
-
-/* function falsoBinario(x){
-  let numero = x.toString()
-  console.log(numero.length)
-  
-  let resultado = []
-  let resultadoFinal = resultado.join('')
-  for(let i = 0; i < numero.length; i++){
-    
-    if(x[i] > 4){
-      let num5 = 5
-      resultado.push(num5)
-    }
-    if(x[i] < 5) {
-      let num0 = 0
-      resultado.push(num0)
-      console.log(resultado)
-    }
-  }
-  
-  console.log( resultadoFinal)
-}
-
-falsoBinario("351772248482")
-
-function inverter(n) {
-  let numeroLetra = n.toString()
-  let arrOriginal = []
-  let arrInvertido = []
-  
-  for(let i = 0; i < numeroLetra.length; i++){
-    arrOriginal.push(parseInt(numeroLetra[i]))
-    console.log(numeroLetra[i])
-  }
-  
-  for(let i = arrOriginal.length -1  ; i > -1; i--){
-    arrInvertido.push(parseInt(numeroLetra[i]))
-    console.log(numeroLetra[i])
-  }
-  console.log(arrInvertido)
-}
-
-inverter(351772248482) */

@@ -82,7 +82,7 @@ main{
     margin:7px 3px;
     font-size: 25px;
     background: #333;
-    background: linear-gradient(to bottom, #000000,#ffffff);
+    background: linear-gradient(to bottom, #555 ,#ffffff);
     box-shadow: 1px 4px 5px #555;
     cursor: pointer;
 
