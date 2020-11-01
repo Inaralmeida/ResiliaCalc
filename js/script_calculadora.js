@@ -24,13 +24,54 @@
  var limpa_telaC = document.getElementById("limpa_telaC")
  var limpa_telaCE = document.getElementById("limpa_telaCE")
  var botao_resultado = document.getElementById("botao_resultado")
- 
- 
+//---------------------botões gerais-----------------------------------------------
+ var botoes = document.querySelectorAll(".operador")
+ var operadores = document.querySelectorAll(".btn")
+
+ botoes.forEach(function(todosOsBotoes){
+  todosOsBotoes.addEventListener('mouseover', () =>{
+      todosOsBotoes.style.background = 'linear-gradient(#ffffff, #000000)';
+  })
+  todosOsBotoes.addEventListener('mouseout', () =>{
+    todosOsBotoes.style.background = 'linear-gradient(#000000, #ffffff)';
+  })
+})
+
+for (let todosOsBotoes of botoes){
+  todosOsBotoes.addEventListener('mousedown', () =>{
+      todosOsBotoes.style.color = 'black'
+  })
+  todosOsBotoes.addEventListener('mouseup', () =>{
+      todosOsBotoes.style.color = 'white'
+  })
+}
+
+operadores.forEach(function(todosOsBotoes){
+  todosOsBotoes.addEventListener('mouseover', () =>{
+    todosOsBotoes.style.background = 'linear-gradient(#777,#222)'
+  })
+  todosOsBotoes.addEventListener('mouseout', () =>{
+      todosOsBotoes.style.background = 'linear-gradient(#222, #777)'
+      todosOsBotoes.style.color = 'white'
+  })
+})
+
+for (let todosOsBotoes of operadores){
+  todosOsBotoes.addEventListener('mousedown', () =>{
+      todosOsBotoes.style.color = 'black'
+  })
+  todosOsBotoes.addEventListener('mouseup', () =>{
+      todosOsBotoes.style.color = 'white'
+  })
+}
+
+//---------------------botões gerais-----------------------------------------------
+
  var salvaNumero = []
  var operador = ''
  var num1 = ''
  var a = ''
- let resultado = 0
+ let resultado = 0 //----------- mexer nisso aqui
  
  //numeros
  digito_1.addEventListener('click', function(){
@@ -89,9 +130,10 @@ negativo.addEventListener('click', function(){
 
 //Funções
 limpa_telaC.addEventListener('click', function(){
-  salvaNumero= []
-  historico.innerText = ' '
-  input.innerText = ' '
+  // salvaNumero= []
+  // historico.innerText = ' '
+  // input.innerText = ' '
+  document.location.reload(true) // função pra recarregar a pagina
 })
 
 limpa_telaCE.addEventListener('click', function(){
