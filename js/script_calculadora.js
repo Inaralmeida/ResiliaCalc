@@ -30,6 +30,7 @@
  var operador = ''
  var num1 = ''
  var a = ''
+ let resultado = 0
  
  //numeros
  digito_1.addEventListener('click', function(){
@@ -40,7 +41,6 @@
 digito_2.addEventListener('click', function(){
   input.innerText +=  '2'
   num1 += 2
-  
   
 })
 digito_3.addEventListener('click', function(){
@@ -99,6 +99,63 @@ limpa_telaCE.addEventListener('click', function(){
   num1 = ''
 })
 
+
+
+//Opoeradores
+operador_soma.addEventListener('click', function(){
+
+  a= resultado + num1
+  console.log(`valor de ${a}`)
+
+  input.innerText += '+'
+  operador = '+'
+  salvaNumero.push(parseFloat(a))
+  salvaNumero.push(operador)
+  historico.innerText = salvaNumero.join(' ')
+  num1= " "
+  input.textContent = ' '
+})
+
+operador_subtracao.addEventListener('click', function(){
+  
+  input.innerText += ' -  '
+  operador = '-'
+  a = num1
+  salvaNumero.push(parseFloat(a))
+  salvaNumero.push(operador)
+  historico.innerText = salvaNumero.join(' ')
+  num1= " "
+  console.log(salvaNumero, num1)
+  input.textContent = ' '
+})
+
+operador_multiplicacao.addEventListener('click', function(){
+  
+  input.innerText += ' *  '
+  operador = '*'
+  a = num1
+  salvaNumero.push(parseFloat(a))
+  salvaNumero.push(operador)
+  historico.innerText = salvaNumero.join(' ')
+  num1= " "
+  console.log(salvaNumero, num1)
+  input.textContent = ' '
+})
+
+operador_divisao.addEventListener('click', function(){
+  
+  input.innerText += ' /  '
+  operador = '/'
+  a = num1
+  salvaNumero.push(parseFloat(a))
+  salvaNumero.push(operador)
+  historico.innerText = salvaNumero.join(' ')
+  num1= " "
+  console.log(salvaNumero, num1)
+  input.textContent = ' '
+})
+
+//resultado
 botao_resultado.addEventListener('click', function(){
   
   input.innerText += ' =  '
@@ -107,41 +164,44 @@ botao_resultado.addEventListener('click', function(){
   salvaNumero.push(parseFloat(a))
   salvaNumero.push(operador)
   historico.innerText = salvaNumero.join(' ')
+
   num1= " "
-  console.log(salvaNumero, num1)
-  input.textContent = ' '
+  input.textContent = ''
   let resultadoFinal = []
   
+  
+  
+  
   for(let i = 0; i < salvaNumero.length; i++){
-    if(salvaNumero.length % 2 == 0){
-      if( salvaNumero[i]  == "+" && salvaNumero[i+1] && salvaNumero[i-1] ){
-        let numero1 = salvaNumero[i-1] 
-        let numero2 = salvaNumero[i+1]
-        console.log(`numero 1: ${numero1}`)
-        console.log(`numero 2: ${numero2}`)
+    if( salvaNumero[i]  == "+" && salvaNumero[i+1] && salvaNumero[i-1] ){
+      let numero1 = salvaNumero[i-1] 
+      let numero2 = salvaNumero[i+1]
+      console.log(`numero 1: ${numero1}`)
+      console.log(`numero 2: ${numero2}`)
+      
+      let igual = salvaNumero[salvaNumero.length - 1]
 
-        let igual = salvaNumero[salvaNumero.length - 1]
-        
-        salvaNumero.splice(igual)
-        
-        let resultado = numero1 + numero2 + salvaNumero[salvaNumero.length -1]
-        
-        
-        
-        
-        /* salvaNumero.splice(0, 2) */
-        
+      let resultado = numero1 + numero2 
+      
+      salvaNumero.splice(igual, 1)
+      
+      salvaNumero.splice(0, 3) 
+    
+      num1= resultado
 
-        resultadoFinal.push(resultado)
-        console.log(resultadoFinal) 
-        
-        
-        /* historico.innerText = salvaNumero.join(' ') + `= ${resultado}`
-        num1 = resultado
-        input.innerText = resultado */
-        
-      }
-    }
+      
+      resultadoFinal.push(parseInt(resultado))
+      console.log(resultado)
+      console.log(salvaNumero) 
+      historico.innerText = salvaNumero.join(' ')
+      input.textContent = resultado
+      
+      /* 
+      historico.innerText = salvaNumero.join(' ') + `= ${resultado}`
+      num1 = resultado
+      input.innerText = resultado */
+    } 
+    /*
     else if(salvaNumero.length % 2 == 0){
       if( salvaNumero[i]  == "+" && salvaNumero[i+1] && salvaNumero[i-1] ){
         let numero1 = salvaNumero[i-1] 
@@ -158,105 +218,56 @@ botao_resultado.addEventListener('click', function(){
       }
     }
     
-  }
+  } */
+  
+}
+
 })
+
+
+
+
+/* console.log(salvaNum) */
+
+/* function falsoBinario(x){
+  let numero = x.toString()
+  console.log(numero.length)
   
-  
-  //Opoeradores
-  operador_soma.addEventListener('click', function(){
+  let resultado = []
+  let resultadoFinal = resultado.join('')
+  for(let i = 0; i < numero.length; i++){
     
-    input.innerText += ' +  '
-    operador = '+'
-    a = num1
-    salvaNumero.push(parseFloat(a))
-    salvaNumero.push(operador)
-    historico.innerText = salvaNumero.join(' ')
-    num1= " "
-    console.log(salvaNumero, num1)
-    input.textContent = ' '
-  })
-  
-  operador_subtracao.addEventListener('click', function(){
-    
-    input.innerText += ' -  '
-    operador = '-'
-    a = num1
-    salvaNumero.push(parseFloat(a))
-    salvaNumero.push(operador)
-    historico.innerText = salvaNumero.join(' ')
-    num1= " "
-    console.log(salvaNumero, num1)
-    input.textContent = ' '
-  })
-  
-  operador_multiplicacao.addEventListener('click', function(){
-    
-    input.innerText += ' *  '
-    operador = '*'
-    a = num1
-    salvaNumero.push(parseFloat(a))
-    salvaNumero.push(operador)
-    historico.innerText = salvaNumero.join(' ')
-    num1= " "
-    console.log(salvaNumero, num1)
-    input.textContent = ' '
-  })
-  
-  operador_divisao.addEventListener('click', function(){
-    
-    input.innerText += ' /  '
-    operador = '/'
-    a = num1
-    salvaNumero.push(parseFloat(a))
-    salvaNumero.push(operador)
-    historico.innerText = salvaNumero.join(' ')
-    num1= " "
-    console.log(salvaNumero, num1)
-    input.textContent = ' '
-  })
-  
-  
-  /* console.log(salvaNum) */
-  
-  /* function falsoBinario(x){
-    let numero = x.toString()
-    console.log(numero.length)
-    
-    let resultado = []
-    let resultadoFinal = resultado.join('')
-    for(let i = 0; i < numero.length; i++){
-      
-      if(x[i] > 4){
-        let num5 = 5
-        resultado.push(num5)
-      }
-      if(x[i] < 5) {
-        let num0 = 0
-        resultado.push(num0)
-        console.log(resultado)
-      }
+    if(x[i] > 4){
+      let num5 = 5
+      resultado.push(num5)
     }
-    
-    console.log( resultadoFinal)
+    if(x[i] < 5) {
+      let num0 = 0
+      resultado.push(num0)
+      console.log(resultado)
+    }
   }
   
-  falsoBinario("351772248482")
+  console.log( resultadoFinal)
+}
+
+falsoBinario("351772248482")
+
+function inverter(n) {
+  let numeroLetra = n.toString()
+  let arrOriginal = []
+  let arrInvertido = []
   
-  function inverter(n) {
-    let numeroLetra = n.toString()
-    let arrOriginal = []
-    let arrInvertido = []
-    
-    for(let i = 0; i < numeroLetra.length; i++){
-      arrOriginal.push(parseInt(numeroLetra[i]))
-      console.log(numeroLetra[i])
-    }
-    
-    for(let i = arrOriginal.length -1  ; i > -1; i--){
-      arrInvertido.push(parseInt(numeroLetra[i]))
-      console.log(numeroLetra[i])
-    }
-    console.log(arrInvertido)
+  for(let i = 0; i < numeroLetra.length; i++){
+    arrOriginal.push(parseInt(numeroLetra[i]))
+    console.log(numeroLetra[i])
   }
   
-  inverter(351772248482) */
+  for(let i = arrOriginal.length -1  ; i > -1; i--){
+    arrInvertido.push(parseInt(numeroLetra[i]))
+    console.log(numeroLetra[i])
+  }
+  console.log(arrInvertido)
+}
+
+inverter(351772248482) */
