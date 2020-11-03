@@ -139,13 +139,13 @@ CE.addEventListener('click', function(){
 
 
 C.addEventListener('click', function(){
-    // salvaNum = []
-    // input.textContent = ''
-    // resultadoFinal = ''
-    // resultado = ''
-    // numValue = ''
-
-    document.location.reload(true)         //--------------- mudança feita mas pode-se alterar 
+     salvaNum = []
+     input.textContent = ''
+     resultadoFinal = ''
+     resultado = ''
+     numValue = ''
+/* 
+    document.location.reload(true)   */       //--------------- mudança feita mas pode-se alterar 
 })
 
 //---------------------botões gerais--------------------------------------------------
@@ -164,11 +164,11 @@ botoes.forEach(function(todosOsBotoes){
 for (let todosOsBotoes of botoes){
  todosOsBotoes.addEventListener('mousedown', () =>{
      todosOsBotoes.style.color = 'black'
-     todosOsBotoes.style.background = 'linear-gradient(#222, #777)'
+     todosOsBotoes.style.background = 'linear-gradient(#555, #ccc)'
  })
  todosOsBotoes.addEventListener('mouseup', () =>{
      todosOsBotoes.style.color = 'white'
-     todosOsBotoes.style.background = 'linear-gradient(#777,#222)'
+     todosOsBotoes.style.background = 'linear-gradient(#ccc,#555)'
  })
 }
 //---------------------botões gerais-------------------------------------------------
