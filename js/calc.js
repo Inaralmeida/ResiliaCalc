@@ -46,9 +46,7 @@ numeros.forEach(function(numeros, index){
         historico.textContent = operando.join(' ')
         
         
-    })    /* numeros.addEventListener('mouseenter', function(){
-        
-    }) */
+    })
     
 })
 for(let elemento in numeros){
@@ -127,6 +125,8 @@ igual.addEventListener('click', function(){
     
     
 } )
+
+
 CE.addEventListener('click', function(){
     salvaNum = []
     input.textContent = ''
@@ -136,10 +136,39 @@ CE.addEventListener('click', function(){
     numValue = ''
     operando = []
 })
+
+
 C.addEventListener('click', function(){
-    salvaNum = []
-    input.textContent = ''
-    resultadoFinal = ''
-    resultado = ''
-    numValue = ''
+    // salvaNum = []
+    // input.textContent = ''
+    // resultadoFinal = ''
+    // resultado = ''
+    // numValue = ''
+
+    document.location.reload(true)         //--------------- mudança feita mas pode-se alterar 
 })
+
+//---------------------botões gerais--------------------------------------------------
+var botoes = document.querySelectorAll(".btn")
+
+botoes.forEach(function(todosOsBotoes){
+ todosOsBotoes.addEventListener('mouseover', () =>{
+   todosOsBotoes.style.background = 'linear-gradient(#777,#222)'
+ })
+ todosOsBotoes.addEventListener('mouseout', () =>{
+     todosOsBotoes.style.background = 'linear-gradient(#222, #777)'
+     todosOsBotoes.style.color = 'white'
+ })
+})
+
+for (let todosOsBotoes of botoes){
+ todosOsBotoes.addEventListener('mousedown', () =>{
+     todosOsBotoes.style.color = 'black'
+     todosOsBotoes.style.background = 'linear-gradient(#222, #777)'
+ })
+ todosOsBotoes.addEventListener('mouseup', () =>{
+     todosOsBotoes.style.color = 'white'
+     todosOsBotoes.style.background = 'linear-gradient(#777,#222)'
+ })
+}
+//---------------------botões gerais-------------------------------------------------
